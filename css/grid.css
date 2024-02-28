@@ -1,0 +1,29 @@
+.grid-container{
+    display:grid;
+    grid-template-columns:5fr 3fr;
+    grid-template-rows:50px 1fr;
+    gap:7px 7px;
+    grid-auto-flow:row;
+    grid-template-areas:
+    "header header"
+    "content editor";
+}
+.grid-header{
+    grid-area:header;
+}
+.grid-content{
+    grid-area:content;
+}
+.grid-editor{
+    grid-area:editor;
+}
+
+.grid-container{
+    width:calc(100% - 14px);
+    height:calc(100% - 14px);
+    padding:7px;
+}
+.grid-header,.grid-content,.grid-editor{
+    padding:5px;
+    box-shadow:0px 0px 3px grey;
+}
