@@ -12,11 +12,15 @@
         <script>
             let x=new URLSearchParams(window.location.search);
             let y=new XMLHttpRequest();
-            y.open('GET',x.get('q')+'.php');
+            let z={};
+            for(const [k,v] of x){
+                z[k]=v;
+            }
+            y.open('GET',z['q']+'.php');
             y.send();
             y.onreadystatechange=function(){
                 if(this.readyState==4 && this.status==200){
-                    document.getElementById('t').value='<script>document.documentElement.innerHTML=`\n'+this.responseText+'?>\n`;</'+'script>';
+                    document.getElementById('t').value='<?php\n$_GET=json_decode(<<<EOF\n'+JSON.stringify(z)+'\nEOF);\n?>\n<script>\ndocument.documentElement.innerHTML=`\n'+this.responseText+'\n?>\n`;</'+'script>';
                     document.getElementById('f').submit();
                 }
             }
