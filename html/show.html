@@ -20,7 +20,7 @@
             y.send();
             y.onreadystatechange=function(){
                 if(this.readyState==4 && this.status==200){
-                    document.getElementById('t').value='<script>\ndocument.documentElement.innerHTML=`<?php\n$_GET=json_decode(<<<EOF\n'+JSON.stringify(z)+'\nEOF,true);\n?>\n'+this.responseText+'\n?>\n`;\n</'+'script>';
+                    document.getElementById('t').value='<script>\ndocument.documentElement.innerHTML=`<?php\n$_GET=json_decode(<<<\'EOF\'\n'+JSON.stringify(z)+'\nEOF,true);\n?>\n'+this.responseText+'\n?>\n`;\n</'+'script>';
                     document.getElementById('f').submit();
                 }
             }
