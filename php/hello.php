@@ -1,2 +1,2 @@
 <?php
-echo 'hello '.$_GET['txt'];
+echo 'hello ',$_GET['txt'];
