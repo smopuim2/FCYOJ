@@ -22,8 +22,11 @@
             </div>
             <div class='grid-content'></div>
             <div class='grid-editor'>
-                <textarea onload='cmirror_setup(this,"editor");'></textarea>
+                <textarea id='editor'></textarea>
             </div>
         </div>
+        <script>
+            cmirror_setup($('#editor'),'editor');
+        </script>
     </body>
 </html>
