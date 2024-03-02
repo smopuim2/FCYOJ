@@ -5,16 +5,25 @@
         <meta name='keywords' content='fcyoj,南京市芳草园小学在线评测系统,芳草园小学,南京市芳草园小学,fcyxx,在线评测系统,OJ,Online Judge' />
         <meta name='description' content='南京市芳草园小学在线评测系统' />
         <title>FCYOJ - 南京市芳草园小学在线评测系统</title>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/mode/clike/clike.min.js'></script>
+        <script src='/FCYOJ/js/cmirror.js'></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.min.css' />
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/theme/dracula.css' />
         <link rel='stylesheet' href='/FCYOJ/css/main.css' />
         <link rel='stylesheet' href='/FCYOJ/css/grid.css' />
     </head>
     <body>
-        <div class="grid-container">
-            <div class="grid-header">
+        <div class='grid-container'>
+            <div class='grid-header'>
         <a href='http://fcyxx.njgljy.com/'><img src='/FCYOJ/img/fcyxx_logo.jpg' alt='南京市芳草园小学图片' style='height:100%' /></a>
             </div>
-            <div class="grid-content"></div>
-            <div class="grid-editor"></div>
+            <div class='grid-content'></div>
+            <div class='grid-editor'>
+                <textarea onload='cmirror_setup(this,"editor");'></textarea>
+            </div>
         </div>
     </body>
 </html>
