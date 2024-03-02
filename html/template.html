@@ -8,9 +8,10 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/mode/clike/clike.min.js'></script>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+        <script src='/FCYOJ/js/cmirror.js'></script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.min.css' />
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/theme/dracula.css' />
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
         <link rel='stylesheet' href='/FCYOJ/css/main.css' />
         <link rel='stylesheet' href='/FCYOJ/css/grid.css' />
     </head>
@@ -24,9 +25,8 @@
                 <textarea id='editor'></textarea>
             </div>
         </div>
-        <script src='/FCYOJ/js/cmirror.js'></script>
         <script>
-            cmirror_setup($('#editor'),'editor');
+            cmirror_setup($('#editor')[0],'editor');
         </script>
     </body>
 </html>
