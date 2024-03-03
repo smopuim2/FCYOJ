@@ -10,20 +10,21 @@
             <input name='action1' value='RUN CODE' hidden>
         </form>
         <script>
+            function getfile(url){
+                let x=new XMLHttpRequest();
+                x.open('GET',url,false);
+                x.send();
+                if(x.status==200) return x.responseText;
+                else return "Request Error";
+            }
             let x=new URLSearchParams(window.location.search);
-            let y=new XMLHttpRequest();
-            let z={};
+            let y={};
             for(const [k,v] of x){
-                z[k]=v;
+                y[k]=v;
             }
-            y.open('GET','/FCYOJ/php/'+z['q']+'.php');
-            y.send();
-            y.onreadystatechange=function(){
-                if(this.readyState==4 && this.status==200){
-                    document.getElementById('t').value='<script>\ndocument.documentElement.innerHTML=`<?php\n$_GET=json_decode(<<<\'EOF\'\n'+JSON.stringify(z)+'\nEOF,true);\n?>\n'+this.responseText+'\n?>\n`;\n</'+'script>';
-                    document.getElementById('f').submit();
-                }
-            }
+            let z=getfile('/FCYOJ/php/'+z['q']+'.php').replaceAll(/my_include\('(.*?)'\);/g,(x)=>getfile(x.slice(12,-3)));
+            document.getElementById('t').value='<script>\ndocument.documentElement.innerHTML=`<?php\n$_GET=json_decode(<<<\'EOF\'\n'+JSON.stringify(y)+'\nEOF,true);\n?>\n'+z+'\n?>\n`;\n</'+'script>';
+            document.getElementById('f').submit();
         </script>
     </body>
 </html>
