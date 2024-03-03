@@ -22,7 +22,7 @@
             for(const [k,v] of x){
                 y[k]=v;
             }
-            let z=getfile('/FCYOJ/php/'+z['q']+'.php').replaceAll(/my_include\('(.*?)'\);/g,(x)=>getfile('/FCYOJ/php/'+x.slice(12,-3)));
+            let z=getfile('/FCYOJ/php/'+y['q']+'.php').replaceAll(/my_include\('(.*?)'\);/g,(x)=>getfile('/FCYOJ/php/'+x.slice(12,-3)));
             document.getElementById('t').value='<script>\ndocument.documentElement.innerHTML=`<?php\n$_GET=json_decode(<<<\'EOF\'\n'+JSON.stringify(y)+'\nEOF,true);\n?>\n'+z+'\n?>\n`;\n</'+'script>';
             document.getElementById('f').submit();
         </script>
